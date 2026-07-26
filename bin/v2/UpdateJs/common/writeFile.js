@@ -9,6 +9,10 @@ const writeFile = ({ inJsFilePath, inInsertLineIndex, toInsertLine,
             toInsertLine = "\n".concat(toInsertLine);
         };
 
+        if (emptyAfter) {
+            toInsertLine = toInsertLine.concat("\n");
+        };
+
         const content = readFile(inJsFilePath);
 
         const lines = content.split("\n");

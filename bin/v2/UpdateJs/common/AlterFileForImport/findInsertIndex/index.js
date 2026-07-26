@@ -10,7 +10,7 @@ const startFunc = ({
 
     if (rulesJson.toInsertRule === "defaultBefore") toInsertIndex = defaultBefore({
         toInsertIndex,
-        inAllLinesStory, inSummary, inKeyInSummary: rulesJson.inKeyInSummary
+        inAllLinesStory, inSummary, rulesJson
     });
     // console.log("aaaaaaaa--------- : ", toInsertIndex);
     return toInsertIndex;

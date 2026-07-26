@@ -1,7 +1,13 @@
 {
-    "toInsertLine": "router.use('/v5', routerFromv5);",
-    "toInsertRule": "defaultBefore",
+    "toInsertLine": "router.use('/v4', routerFromv4);",
     "toInsertRule1": "defaultAfter",
     "inKeyInSummary": "consumeSummary",
-    "toCheckLinesName": "importLines"
+    "toCheckLinesName": "useLines",
+    "aboutInsertIndex": {
+        "toInsertRule": "defaultBefore",
+        "toCheckKey": "consumeSummary",
+        "toCheckEmptyKey": "exportSummary",
+        "considerTop": false,
+        "considerBottom": true
+    }
 }

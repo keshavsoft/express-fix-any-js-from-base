@@ -57,13 +57,14 @@ const alterFile = ({
     const toInsertIndex = findInsertIndex({
         inAllLinesStory: fromPatternCollector.allLinesStory,
         inSummary: fromPatternCollector?.summary,
-        rulesJson
+        rulesJson: rulesJson?.aboutInsertIndex
     });
 
     writeFile({
         inJsFilePath: jsFilePath,
         inInsertLineIndex: toInsertIndex.index,
-        toInsertLine, emptyBefore: toInsertIndex.emptyBefore
+        toInsertLine, emptyBefore: toInsertIndex.emptyBefore,
+        emptyAfter: toInsertIndex.emptyAfter
     });
 
     atEnd({ duplicateInfo, packageJson, showLog });

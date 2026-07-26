@@ -2,7 +2,7 @@ import getFromStory from "./story.js";
 import getFromSummary from "./modulat.js";
 
 const findInsertIndex = ({ toInsertIndex,
-    inAllLinesStory, inSummary, inKeyInSummary
+    inAllLinesStory, inSummary, rulesJson
 }) => {
 
     const storyIndex = getFromStory(inAllLinesStory);
@@ -11,7 +11,13 @@ const findInsertIndex = ({ toInsertIndex,
         toInsertIndex = storyIndex;
     };
     // console.log("aaaaaaaa-- : ", inKeyInSummary);
-    const summaryIndex = getFromSummary({ inSummary, inKeyInSummary });
+    const summaryIndex = getFromSummary({
+        inSummary,
+        inToCheckKey: rulesJson?.toCheckKey,
+        inToCheckEmptyKey: rulesJson?.toCheckEmptyKey,
+        inConsiderTop: rulesJson?.considerTop,
+        inConsiderBottom: rulesJson?.considerBottom
+    })
 
     if (summaryIndex !== null) {
         toInsertIndex = summaryIndex;
