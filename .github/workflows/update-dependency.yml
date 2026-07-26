@@ -67,25 +67,14 @@ jobs:
         if: steps.check.outputs.changed == 'true'
         run: |
           echo "### 🔔 Dependency Notification Status" >> $GITHUB_STEP_SUMMARY
-          RESPONSE1=$(curl -s -w "%{http_code}" -o resp1.json -X POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.REPO_DISPATCH_TOKEN }}" \
-            https://api.github.com/repos/keshavsoft/express-fix-endpoints-get-js/dispatches \
-            -d '{"event_type":"dependency-updated"}')
-          if [ "$RESPONSE1" = "204" ]; then
-            echo "* **<a href=\"https://github.com/keshavsoft/express-fix-endpoints-get-js\" target=\"_blank\">express-fix-endpoints-get-js</a>**: ✅ Dispatched successfully (HTTP 204)" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "* **<a href=\"https://github.com/keshavsoft/express-fix-endpoints-get-js\" target=\"_blank\">express-fix-endpoints-get-js</a>**: ❌ Failed to dispatch (HTTP $RESPONSE1)" >> $GITHUB_STEP_SUMMARY
-            cat resp1.json >> $GITHUB_STEP_SUMMARY
-          fi
-          RESPONSE2=$(curl -s -w "%{http_code}" -o resp2.json -X POST \
+          RESPONSE=$(curl -s -w "%{http_code}" -o resp.json -X POST \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.REPO_DISPATCH_TOKEN }}" \
             https://api.github.com/repos/keshavsoft/express-fix-any-js-from-story/dispatches \
             -d '{"event_type":"dependency-updated"}')
-          if [ "$RESPONSE2" = "204" ]; then
+          if [ "$RESPONSE" = "204" ]; then
             echo "* **<a href=\"https://github.com/keshavsoft/express-fix-any-js-from-story\" target=\"_blank\">express-fix-any-js-from-story</a>**: ✅ Dispatched successfully (HTTP 204)" >> $GITHUB_STEP_SUMMARY
           else
-            echo "* **<a href=\"https://github.com/keshavsoft/express-fix-any-js-from-story\" target=\"_blank\">express-fix-any-js-from-story</a>**: ❌ Failed to dispatch (HTTP $RESPONSE2)" >> $GITHUB_STEP_SUMMARY
-            cat resp2.json >> $GITHUB_STEP_SUMMARY
+            echo "* **<a href=\"https://github.com/keshavsoft/express-fix-any-js-from-story\" target=\"_blank\">express-fix-any-js-from-story</a>**: ❌ Failed to dispatch (HTTP $RESPONSE)" >> $GITHUB_STEP_SUMMARY
+            cat resp.json >> $GITHUB_STEP_SUMMARY
           fi
