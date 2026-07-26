@@ -1,0 +1,7 @@
+{
+    "toInsertLine": "router.use('/v5', routerFromv5);",
+    "toInsertRule": "defaultBefore",
+    "toInsertRule1": "defaultAfter",
+    "inKeyInSummary": "consumeSummary",
+    "toCheckLinesName": "importLines"
+}
