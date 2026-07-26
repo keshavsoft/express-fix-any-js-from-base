@@ -11,19 +11,21 @@ import atEnd from "./showLogs/atEnd.js";
 import packageJson from '../../../../../package.json' with {type: 'json'};
 
 const alterFile = ({
-    jsFilePath, rulesJson, extractRegex, inParseRegex,
-    toCheckLinesName,
+    jsFilePath, rulesJson, extractRegex,
     showLog = false, showLogStep1, showLogStep2, showLogStep3
 }) => {
 
-    atStart({ jsFilePath, rulesJson, packageJson, showLog, parseRegex: inParseRegex, searchRegex: extractRegex });
+    atStart({ jsFilePath, rulesJson, packageJson, showLog, searchRegex: extractRegex });
 
     const toInsertLine = rulesJson.toInsertLine;
 
     const content = readFile(jsFilePath);
 
+    // "keyNeeded": "importRegex.parseRegex"
+
     const lineStory = getLineStory({
-        toInsertLine, parseRegex: inParseRegex, showLog
+        toInsertLine, parseRegex: extractRegex[rulesJson?.regexNeeded],
+        showLog
     });
 
     if (showLog?.withValues) console.log(`${packageJson.name}-lineStory : `, lineStory);

@@ -15,7 +15,6 @@ function runTests() {
         jsFilePath: appJsPath,
         rulesJson,
         extractRegex, 
-        inParseRegex: extractRegex.importRegex.parseRegex,
         showLog: {
             keysOnly: false,
             withValues: false

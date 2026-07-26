@@ -12,5 +12,6 @@ export default {
     },
     exportRegex: {
         searchRegex: /export\s*\{\s*(\w+)\s*\}\s*;?/gm
-    }
+    },
+    
 };

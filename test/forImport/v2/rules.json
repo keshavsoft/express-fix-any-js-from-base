@@ -10,5 +10,8 @@
         "toCheckEmpty2Key": "importFromNpmSummary",
         "considerTop": false,
         "considerBottom": true
+    },
+    "regexNeeded": {
+        "keyNeeded": "importRegex.parseRegex"
     }
 }
