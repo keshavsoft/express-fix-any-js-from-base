@@ -1,5 +1,5 @@
 {
-    "toInsertLine": "router.use('/v4', routerFromv4);",
+    "toInsertLine": "router.use('/v3', routerFromv3);",
     "toInsertRule1": "defaultAfter",
     "inKeyInSummary": "consumeSummary",
     "toCheckLinesName": "useLines",
