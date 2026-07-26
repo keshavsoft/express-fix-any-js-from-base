@@ -1,0 +1,14 @@
+{
+    "toInsertLine": "import { router as routerFromv2 } from './v2/routes.js';",
+    "toInsertRule": "defaultBefore",
+    "inKeyInSummary": "importSummary",
+    "toCheckLinesName": "importLines",
+    "aboutInsertIndex": {
+        "toInsertRule": "defaultBefore",
+        "toCheckKey": "importSummary",
+        "toCheckEmptyKey": "consumeSummary",
+        "toCheckEmpty2Key": "importFromNpmSummary",
+        "considerTop": false,
+        "considerBottom": true
+    }
+}

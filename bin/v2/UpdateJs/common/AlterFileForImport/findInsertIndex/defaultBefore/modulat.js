@@ -1,5 +1,5 @@
 const startFunc = ({ inSummary, inToCheckKey, inToCheckEmptyKey,
-    inConsiderTop, inConsiderBottom
+    inConsiderTop, inConsiderBottom, inToCheckEmpty2Key
 }) => {
 
     let index = null;
@@ -8,6 +8,7 @@ const startFunc = ({ inSummary, inToCheckKey, inToCheckEmptyKey,
 
     const toCheckKey = inToCheckKey;
     const toCheckEmptyKey = inToCheckEmptyKey;
+    const toCheckEmpty2Key = inToCheckEmpty2Key;
 
     const considerTop = inConsiderTop;
     const considerBottom = inConsiderBottom;
@@ -25,8 +26,13 @@ const startFunc = ({ inSummary, inToCheckKey, inToCheckEmptyKey,
 
         if (considerBottom) {
             if (inSummary[toCheckEmptyKey]?.lineCount === 0) {
-                // index = inSummary[toCheckEmptyKey]?.minLineNumber;
-                index = 1;
+                if (inSummary[toCheckEmpty2Key]?.lineCount === 0) {
+                    // index = inSummary[toCheckEmptyKey]?.minLineNumber;
+                    index = 1;
+                } else {
+                    emptyBefore = true;
+                    index = inSummary[toCheckEmpty2Key]?.maxLineNumber + 1;
+                };
             } else {
                 emptyAfter = true;
                 index = inSummary[toCheckEmptyKey]?.minLineNumber;

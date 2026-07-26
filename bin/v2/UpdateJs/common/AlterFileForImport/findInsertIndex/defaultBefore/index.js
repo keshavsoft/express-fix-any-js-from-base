@@ -16,7 +16,8 @@ const findInsertIndex = ({ toInsertIndex,
         inToCheckKey: rulesJson?.toCheckKey,
         inToCheckEmptyKey: rulesJson?.toCheckEmptyKey,
         inConsiderTop: rulesJson?.considerTop,
-        inConsiderBottom: rulesJson?.considerBottom
+        inConsiderBottom: rulesJson?.considerBottom,
+        inToCheckEmpty2Key: rulesJson?.toCheckEmpty2Key
     })
 
     if (summaryIndex !== null) {
