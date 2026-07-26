@@ -14,7 +14,7 @@ function runTests() {
     const output = index({
         jsFilePath: appJsPath,
         rulesJson,
-        extractRegex, 
+        extractRegex,
         showLog: {
             keysOnly: false,
             withValues: false
@@ -33,7 +33,7 @@ function runTests() {
         }
     });
 
-    // console.log("output : ", output);
+    console.log("output : ", output);
 };
 
 runTests();

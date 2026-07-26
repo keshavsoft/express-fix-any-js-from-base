@@ -22,10 +22,12 @@ const alterFile = ({
     const content = readFile(jsFilePath);
 
     // "keyNeeded": "importRegex.parseRegex"
+    const parseRegex = rulesJson?.regexNeeded?.keyNeeded
+        .split(".")
+        .reduce((obj, key) => obj?.[key], extractRegex);
 
     const lineStory = getLineStory({
-        toInsertLine, parseRegex: extractRegex[rulesJson?.regexNeeded],
-        showLog
+        toInsertLine, parseRegex, showLog
     });
 
     if (showLog?.withValues) console.log(`${packageJson.name}-lineStory : `, lineStory);
@@ -45,6 +47,8 @@ const alterFile = ({
         inSearchText: lineStory.raka,
         inFileContentAsStory: fromPatternCollector[rulesJson?.toCheckLinesName]
     });
+
+    console.log(`------- : `, duplicateInfo);
 
     if (duplicateInfo.found) {
         if (showLog) {
